@@ -8,7 +8,7 @@ To streamline the exchange of medical, billing, and other administrative informa
 
 ## 2. Participant Interaction Scheme
 
-The diagram below shows the major interactions between participants. All lines are ≤78 characters to prevent wrapping.
+The diagram below shows the major interactions between participants. All lines are ≤78 characters to prevent wrapping on GitHub.
 
 ```text
                                +-------------------------+
@@ -108,4 +108,3 @@ The diagram below shows the major interactions between participants. All lines a
 - **X12 is for Administrative & Financial Transactions:** It is the standard for the business side of healthcare, used between providers and payers for claims, payments, and eligibility checks.
 - **FHIR is for Modern API-Based Access:** It is designed for real-time, "on-demand" access to specific data, powering patient portals, mobile apps, and integrations between EHRs.
 - **C-CDA is for Clinical Document Exchange:** It is used for sharing complete clinical summaries, such as for patient referrals, transfer of care, or when a patient is discharged from a hospital.
-  
