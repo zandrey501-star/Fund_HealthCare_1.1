@@ -65,6 +65,7 @@ The diagram below shows the major interactions between participants. All lines a
 +------------------+
 
 
+
 ## 3. Key Participants and Their Functions
 
 - **Patient** – Consumer of medical services; receives care, pays premiums and out-of-pocket costs.
