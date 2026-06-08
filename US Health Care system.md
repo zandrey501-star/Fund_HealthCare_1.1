@@ -12,56 +12,56 @@ The diagram below shows the major interactions between participants.
 
 ```text
                                +-------------------------+
-                               |       GOVERNMENT         |
-                               |     (CMS, State)          |
-                               | Regulation, Medicare/     |
-                               | Medicaid                  |
-                               +------------+-------------+
+                               |       GOVERNMENT        |
+                               |     (CMS, State)        |
+                               | Regulation, Medicare/   |
+                               | Medicaid                |
+                               +------------+------------+
                                             | Rules, audits,
                                             | public $ (reimbursement)
                                             v
-+-------------+    enrollment     +------------------+   claims    +----------------+
-|   EMPLOYER  |   (834 EDI)       |    INSURANCE      |  (837/835)  |    PROVIDER     |
-|  (sponsor)  |------------------>|    COMPANY        |<----------->|  (hospital,     |
-+------+------+                   |   (or TPA)        |             |   clinic)       |
-       | premium payment (820)    +--------+---------+             +-------+--------+
-       |                                  |                               |
-       |                                  | eligibility (270/271)         | clinical data
-       |                                  | prior auth                    | (C-CDA/FHIR)
-       |                                  |                               |
-       |                                  |                               v
-       |                                  |                         +-------------+
-       |                                  |                         |     HIE      |
-       |                                  |                         |  (exchange)  |
-       |                                  |                         +-------------+
-       |                                  |
-       v                                  |
-+-------------+  premium, cost share       |
-|   PATIENT   |<---------------------------+
-+------+------+  insurance card, EOB
++-------------+    enrollment     +-----------------+   claims    +----------------+
+|   EMPLOYER  |   (834 EDI)       |    INSURANCE    |  (837/835)  |    PROVIDER    |
+|  (sponsor)  |------------------>|    COMPANY      |<----------->|  (hospital,    |
++------+------+                   |   (or TPA)      |             |   clinic)      |
+       | premium payment (820)    +-------+---------+             +-------+--------+
+       |                                  |                       |       |
+       |                                  | eligibility (270/271) |       | clinical data
+       |                                  | prior auth            |       | (C-CDA/FHIR)
+       |                                  |                       |       |
+       |                                  |                       |       v
+       |                                  |                       |   +-------------+
+       |                                  |                       |   |     HIE     |
+       |                                  |                       |   |  (exchange) |
+       |                                  |                       |   +-------------+
+       |                                  |                       |
+       v                                  |                       |
++-------------+  premium, cost share      |         Consent, medical history forms, FHIR
+|   PATIENT   |<--------------------------+-----------------------+
++------+------+  insurance card, EO
        |
        | care, prescriptions
        v
 +-------------+  prescription claim   +-------+   rebates/formulary   +-----------+
-|   PHARMACY  |---------------------->|  PBM  |<--------------------->|   PHARMA   |
+|   PHARMACY  |---------------------->|  PBM  |<--------------------->|   PHARMA  |
 +-------------+                       +---+---+                       +-----------+
                                           |
                                           | drug benefits mgmt
                                           | for insurer/employer
                                           v
                                    +-------------+
-                                   |  INSURANCE   |
-                                   |  (or TPA)    |
+                                   |  INSURANCE  |
+                                   |  (or TPA)   |
                                    +-------------+
 
 +------------------+  claim translation   +----------------+
-|  CLEARINGHOUSE   |<-------------------->|    PROVIDER     |
+|  CLEARINGHOUSE   |<-------------------->|    PROVIDER    |
 |   (EDI router)   |                      +----------------+
 +--------+---------+
          |
          v
 +------------------+
-|    INSURANCE      |
+|    INSURANCE     |
 +------------------+
 
 ```
@@ -101,7 +101,7 @@ The diagram below shows the major interactions between participants.
 | Government (CMS) ↔ Insurance Co. | Medicare/Medicaid payment & reporting | X12 (837, 835, 820) + CMS files |
 | Government (CMS) → Provider | Quality measure reporting (e.g., MIPS) | HL7 QRDA (based on CDA) |
 | Patient ↔ Insurance Co. | Explanation of benefits (EOB) | Paper / PDF (non‑standard) |
-| Patient ↔ Provider | Consent, medical history forms | Paper / portal (non‑standard) |
+| Patient ↔ Provider | Consent, medical history forms | FHIR / Paper / portal (non‑standard) |
 
 
 ## 5. Key Takeaways
@@ -109,3 +109,5 @@ The diagram below shows the major interactions between participants.
 - **X12 is for Administrative & Financial Transactions:** It is the standard for the business side of healthcare, used between providers and payers for claims, payments, and eligibility checks.
 - **FHIR is for Modern API-Based Access:** It is designed for real-time, "on-demand" access to specific data, powering patient portals, mobile apps, and integrations between EHRs.
 - **C-CDA is for Clinical Document Exchange:** It is used for sharing complete clinical summaries, such as for patient referrals, transfer of care, or when a patient is discharged from a hospital.
+
+
