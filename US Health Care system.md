@@ -104,6 +104,7 @@ The diagram below shows the major interactions between participants. All lines a
 | Patient ↔ Insurance Co. | Explanation of benefits (EOB) | Paper / PDF (non‑standard) |
 | Patient ↔ Provider | Consent, medical history forms | Paper / portal (non‑standard) |
 
+
 ## 5. Key Takeaways
 
 - **X12 is for Administrative & Financial Transactions:** It is the standard for the business side of healthcare, used between providers and payers for claims, payments, and eligibility checks.
