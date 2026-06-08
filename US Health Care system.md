@@ -62,7 +62,6 @@ The diagram below shows the major interactions between participants in the US he
 │ INSURANCE │
 └──────────────┘
 
-text
 
 ## 3. Key Participants and Their Functions
 
