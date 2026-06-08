@@ -8,34 +8,34 @@ To streamline the exchange of medical, billing, and other administrative informa
 
 ## 2. Participant Interaction Scheme
 
-The diagram below shows the major interactions between participants.
+The diagram below shows the major interactions between participants. All lines are ≤78 characters to prevent wrapping.
 
-
-                               +--------------------------+
+```text
+                               +-------------------------+
                                |       GOVERNMENT         |
-                               |     (CMS, State)         |
-                               | Regulation, Medicare/    |
-                               | Medicaid                 |
+                               |     (CMS, State)          |
+                               | Regulation, Medicare/     |
+                               | Medicaid                  |
                                +------------+-------------+
                                             | Rules, audits,
                                             | public $ (reimbursement)
                                             v
-+-------------+   enrollment     +-------------------+   claims    +----------------+
-|   EMPLOYER  |  (834 EDI)       |    INSURANCE      |  (837/835)  |    PROVIDER    |
-|  (sponsor)  |----------------->|    COMPANY        |<----------->|  (hospital,    |
-+------+------+                  |   (or TPA)        |             |   clinic)      |
-       | premium payment (820)   +---------+---------+             +-------+--------+
-       |                                   |                               |
-       |                                   | eligibility (270/271)         | clinical data
-       |                                   | prior auth                    | (C-CDA/FHIR)
-       |                                   |                               |
-       |                                   |                               v
-       |                                   |                         +-------------+
-       |                                   |                         |     HIE     |
-       |                                   |                         |  (exchange) |
-       |                                   |                         +-------------+
-       |                                   |
-       v                                   |
++-------------+    enrollment     +------------------+   claims    +----------------+
+|   EMPLOYER  |   (834 EDI)       |    INSURANCE      |  (837/835)  |    PROVIDER     |
+|  (sponsor)  |------------------>|    COMPANY        |<----------->|  (hospital,     |
++------+------+                   |   (or TPA)        |             |   clinic)       |
+       | premium payment (820)    +--------+---------+             +-------+--------+
+       |                                  |                               |
+       |                                  | eligibility (270/271)         | clinical data
+       |                                  | prior auth                    | (C-CDA/FHIR)
+       |                                  |                               |
+       |                                  |                               v
+       |                                  |                         +-------------+
+       |                                  |                         |     HIE      |
+       |                                  |                         |  (exchange)  |
+       |                                  |                         +-------------+
+       |                                  |
+       v                                  |
 +-------------+  premium, cost share       |
 |   PATIENT   |<---------------------------+
 +------+------+  insurance card, EOB
@@ -43,25 +43,25 @@ The diagram below shows the major interactions between participants.
        | care, prescriptions
        v
 +-------------+  prescription claim   +-------+   rebates/formulary   +-----------+
-|   PHARMACY  |---------------------->|  PBM  |<--------------------->|   PHARMA  |
+|   PHARMACY  |---------------------->|  PBM  |<--------------------->|   PHARMA   |
 +-------------+                       +---+---+                       +-----------+
                                           |
                                           | drug benefits mgmt
                                           | for insurer/employer
                                           v
                                    +-------------+
-                                   |  INSURANCE  |
-                                   |  (or TPA)   |
+                                   |  INSURANCE   |
+                                   |  (or TPA)    |
                                    +-------------+
 
 +------------------+  claim translation   +----------------+
-|  CLEARINGHOUSE   |<-------------------->|    PROVIDER    |
+|  CLEARINGHOUSE   |<-------------------->|    PROVIDER     |
 |   (EDI router)   |                      +----------------+
 +--------+---------+
          |
          v
 +------------------+
-|    INSURANCE     |
+|    INSURANCE      |
 +------------------+
 ## 3. Key Participants and Their Functions
 
