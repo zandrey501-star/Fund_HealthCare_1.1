@@ -9,59 +9,59 @@ To streamline the exchange of medical, billing, and other administrative informa
 ## 2. Participant Interaction Scheme
 
 The diagram below shows the major interactions between participants in the US healthcare system. Arrows indicate the primary direction of data, documents, or payments.
-┌─────────────────┐
-│ GOVERNMENT │
-│ (CMS, State) │
-│ Regulation, │
-│ Medicare/Medicaid│
-└────────┬────────┘
-│ Rules, audits,
-│ public $ (reimbursement)
-▼
-┌──────────┐ enrollment ┌──────────────┐ claims ┌─────────────┐
-│ EMPLOYER │ ─────────────────►│ INSURANCE │◄──────────►│ PROVIDER │
-│ (sponsor) │ (834 EDI) │ COMPANY │ (837/835) │ (hospital, │
-└────┬─────┘ │ (or TPA) │ │ clinic) │
-│ premium payment (820) └───────┬───────┘ └──────┬──────┘
-│ │ │
-│ │ eligibility (270/271) │ clinical data
-│ │ prior auth │ (C-CDA/FHIR)
-│ │ │
-│ │ ▼
-│ │ ┌─────────────┐
-│ │ │ HIE │
-│ │ │ (exchange) │
-│ │ └─────────────┘
-│ │
-▼ │
-┌─────────┐ premium, cost share │
+
+                               ┌─────────────────┐
+                               │   GOVERNMENT     │
+                               │ (CMS, State)     │
+                               │ Regulation,      │
+                               │ Medicare/Medicaid│
+                               └────────┬────────┘
+                                        │ Rules, audits,
+                                        │ public $ (reimbursement)
+                                        ▼
+┌──────────┐     enrollment     ┌──────────────┐   claims   ┌─────────────┐
+│ EMPLOYER  │ ─────────────────►│   INSURANCE   │◄──────────►│  PROVIDER   │
+│ (sponsor) │     (834 EDI)      │   COMPANY     │ (837/835)  │ (hospital,  │
+└────┬─────┘                     │ (or TPA)      │            │  clinic)    │
+     │ premium payment (820)     └───────┬───────┘            └──────┬──────┘
+     │                                   │                          │
+     │                                   │ eligibility (270/271)    │ clinical data
+     │                                   │ prior auth               │ (C-CDA/FHIR)
+     │                                   │                          │
+     │                                   │                          ▼
+     │                                   │                    ┌─────────────┐
+     │                                   │                    │     HIE     │
+     │                                   │                    │ (exchange)  │
+     │                                   │                    └─────────────┘
+     │                                   │
+     ▼                                   │
+┌─────────┐   premium, cost share        │
 │ PATIENT │ ◄────────────────────────────┘
-└────┬────┘ insurance card, EOB
-│
-│ care, prescriptions
-▼
-┌─────────┐ prescription claim ┌──────────┐ rebates/formulary ┌───────────┐
-│ PHARMACY │───────────────────────►│ PBM │◄─────────────────────►│ PHARMA │
-└─────────┘ └─────┬────┘ └───────────┘
-│
-│ drug benefits mgmt
-│ for insurer/employer
-▼
-┌───────────┐
-│ INSURANCE │
-│ (or TPA) │
-└───────────┘
+└────┬────┘   insurance card, EOB
+     │
+     │ care, prescriptions
+     ▼
+┌─────────┐   prescription claim   ┌──────────┐   rebates/formulary   ┌───────────┐
+│ PHARMACY │───────────────────────►│    PBM    │◄─────────────────────►│   PHARMA   │
+└─────────┘                         └─────┬────┘                       └───────────┘
+                                           │
+                                           │ drug benefits mgmt
+                                           │ for insurer/employer
+                                           ▼
+                                     ┌───────────┐
+                                     │ INSURANCE │
+                                     │ (or TPA)  │
+                                     └───────────┘
 
-┌──────────────┐ claim translation ┌─────────────┐
-│ CLEARINGHOUSE │◄─────────────────────►│ PROVIDER │
-│ (EDI router) │ └─────────────┘
-└───────┬───────┘
-│
-▼
-┌──────────────┐
-│ INSURANCE │
-└──────────────┘
-
+                     ┌──────────────┐   claim translation   ┌─────────────┐
+                     │ CLEARINGHOUSE │◄─────────────────────►│  PROVIDER   │
+                     │ (EDI router)  │                       └─────────────┘
+                     └───────┬───────┘
+                             │
+                             ▼
+                     ┌──────────────┐
+                     │   INSURANCE  │
+                     └──────────────┘
 
 ## 3. Key Participants and Their Functions
 
