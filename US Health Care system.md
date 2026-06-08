@@ -61,7 +61,9 @@ The diagram below shows the major interactions between participants.
 +------------------+
 |    INSURANCE      |
 +------------------+
+
 3. Key Participants and Their Functions
+
 Patient – Consumer of medical services; receives care, pays premiums and out-of-pocket costs.
 
 Insurance Company – Provides medical insurance plans, manages financial risk, processes claims, and negotiates provider rates.
@@ -85,6 +87,7 @@ Clearinghouse – Translates and routes electronic claims, enrollment, and payme
 Health Information Exchange (HIE) – Facilitates secure clinical data sharing (e.g., via C‑CDA or FHIR) among providers and sometimes public health agencies.
 
 4. Data Exchange Standards by Participant Pair
+
 Participant Pair	Document / Transaction Type	Standard (X12 / HL7 / other)
 Employer → Insurance Co.	Benefit enrollment & maintenance	X12 834
 Employer → Insurance Co.	Premium payment & remittance	X12 820
@@ -105,7 +108,9 @@ Government (CMS) ↔ Insurance Co.	Medicare/Medicaid payment & reporting	X12 (83
 Government (CMS) → Provider	Quality measure reporting (e.g., MIPS)	HL7 QRDA (based on CDA)
 Patient ↔ Insurance Co.	Explanation of benefits (EOB)	Paper / PDF (non‑standard)
 Patient ↔ Provider	Consent, medical history forms	Paper / portal (non‑standard)
+
 5. Key Takeaways
+
 X12 is for Administrative & Financial Transactions: It is the standard for the business side of healthcare, used between providers and payers for claims, payments, and eligibility checks.
 
 FHIR is for Modern API-Based Access: It is designed for real-time, "on-demand" access to specific data, powering patient portals, mobile apps, and integrations between EHRs.
