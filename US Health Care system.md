@@ -20,24 +20,24 @@ The diagram below shows the major interactions between participants.
                                             | Rules, audits,
                                             | public $ (reimbursement)
                                             v
-+-------------+    enrollment     +-------------------+   claims    +----------------+
-|   EMPLOYER  |   (834 EDI)       |    INSURANCE      |  (837/835)  |    PROVIDER    |
-|  (sponsor)  |------------------>|    COMPANY        |<----------->|  (hospital,    |
-+------+------+                   |   (or TPA)        |             |   clinic)      |
-       | premium payment (820)    +---------+---------+             +-------+--------+
-       |                                    |                               |
-       |                                    | eligibility (270/271)         | clinical data
-       |                                    | prior auth                    | (C-CDA/FHIR)
-       |                                    |                               |
-       |                                    |                               v
-       |                                    |                         +-------------+
-       |                                    |                         |     HIE     |
-       |                                    |                         |  (exchange) |
-       |                                    |                         +-------------+
-       |                                    |
-       v                                    |
-+-------------+  premium, cost share        |
-|   PATIENT   |<----------------------------+
++-------------+   enrollment     +-------------------+   claims    +----------------+
+|   EMPLOYER  |  (834 EDI)       |    INSURANCE      |  (837/835)  |    PROVIDER    |
+|  (sponsor)  |----------------->|    COMPANY        |<----------->|  (hospital,    |
++------+------+                  |   (or TPA)        |             |   clinic)      |
+       | premium payment (820)   +---------+---------+             +-------+--------+
+       |                                   |                               |
+       |                                   | eligibility (270/271)         | clinical data
+       |                                   | prior auth                    | (C-CDA/FHIR)
+       |                                   |                               |
+       |                                   |                               v
+       |                                   |                         +-------------+
+       |                                   |                         |     HIE     |
+       |                                   |                         |  (exchange) |
+       |                                   |                         +-------------+
+       |                                   |
+       v                                   |
++-------------+  premium, cost share       |
+|   PATIENT   |<---------------------------+
 +------+------+  insurance card, EOB
        |
        | care, prescriptions
